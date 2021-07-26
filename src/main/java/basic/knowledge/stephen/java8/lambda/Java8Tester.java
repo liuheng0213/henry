@@ -1,4 +1,4 @@
-package basic.knowledge.stephen.java8.lambda_java8;
+package basic.knowledge.stephen.java8.lambda;
 
 import java.util.ArrayList;
 import java.util.Arrays;
