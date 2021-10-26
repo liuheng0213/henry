@@ -20,6 +20,9 @@ public class TcpSocketClientTest {
         System.out.println(new String(b, 0, len));
         os.close();
         s.close();
+
+
+
     }
 
 }

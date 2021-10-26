@@ -20,20 +20,7 @@ public class Person implements Comparable<Person>{
 
 
 
-    //hashCode equals必须的
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Person)) return false;
-        Person person = (Person) o;
-        return getAge() == person.getAge() &&
-                Objects.equals(getName(), person.getName());
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getAge());
-    }
 
     public String getName() {
         return name;
@@ -62,5 +49,19 @@ public class Person implements Comparable<Person>{
     @Override
     public int compareTo(Person o) {
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getAge() == person.getAge();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getAge());
     }
 }
