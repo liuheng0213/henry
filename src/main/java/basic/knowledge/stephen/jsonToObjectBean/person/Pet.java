@@ -1,6 +1,6 @@
 package basic.knowledge.stephen.jsonToObjectBean.person;
 
-public abstract class Pet {
+public class Pet {
     protected String name;
     protected String type;
 
