@@ -1,16 +1,33 @@
 package basic.knowledge.stephen.algorithm.InterverviewFromRenowedITCompany._05string;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 //删除多余字符得到字典序最小的字符串
 public class _09MinDicSequenByDel {
     public static void main(String[] args) {
-        _09MinDicSequenByDel minDicSequenByDel = new _09MinDicSequenByDel();
-        String res = minDicSequenByDel.getRes("baacccccbadaxacdcadc");
-        System.out.println(res);
-        String res1 = minDicSequenByDel.getResByHashMap("baacccccbadaxacdcadc");
-        System.out.println(res1);
+//        _09MinDicSequenByDel minDicSequenByDel = new _09MinDicSequenByDel();
+//        String res = minDicSequenByDel.getRes("baacccccbadaxacdcadc");
+//        System.out.println(res);
+//        String res1 = minDicSequenByDel.getResByHashMap("baacccccbadaxacdcadc");
+//        System.out.println(res1);
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });
+        pq.add(1);
+        pq.add(3);
+        pq.add(12);
+        pq.add(14);
+
+        System.out.println(pq.poll());
+        System.out.println(pq.poll());
+        System.out.println(pq.poll());
     }
 
     //注意: 要使用逻辑删除

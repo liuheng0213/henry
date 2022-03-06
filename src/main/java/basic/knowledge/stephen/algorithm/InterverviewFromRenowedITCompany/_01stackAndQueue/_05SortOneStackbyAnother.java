@@ -33,8 +33,16 @@ public class _05SortOneStackbyAnother {
             help.push(ele);
         }
 
+
         while (!help.isEmpty()) {
-            stack.push(help.pop());
+            Integer pop = help.pop();
+            System.out.println("====" +pop);
+            stack.push(pop);
+        }
+
+
+        while(!stack.isEmpty()){
+            System.out.println(stack.pop());
         }
 
     }

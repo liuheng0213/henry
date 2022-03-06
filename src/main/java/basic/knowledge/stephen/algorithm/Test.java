@@ -13,29 +13,53 @@ public class Test {
 
 
     public static void main(String[] args) {
-        Test test = new Test();
-        int[][] prerequisites = new int[][]{{1,0},{0,1}};
 
-
-        //todo
-        System.out.println();
+        int[] A= new int[]{3, 0, 5};
+        int resul = solution(A);
+        System.out.println(resul);
 
     }
 
-    public void test1() throws Exception {
-        try {
-            class A {
 
+    public static int solution(int[] A) {
+        if(A == null || A.length == 0){
+            return 0;
+        }
+        // write your code in Java SE 8
+        PriorityQueue<Double> pq = new PriorityQueue<>(new Comparator<Double>(){
+            @Override
+            public int compare(Double o1,Double o2){
+                return (int)(o2-o1);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally {
-            throw new Exception();
+        });
+
+        Double sumPollution = new Double(0);
+        for(int i = 0;i< A.length;i++){
+            Double ab = Double.valueOf(A[i]);
+            pq.add(ab);
+            sumPollution+=A[i];
         }
 
 
-    }
+        Double halfPollution = sumPollution/2;
+        int result = 0;
+        Double deductedPollution = 0.0;
+        while(deductedPollution.compareTo(halfPollution) < 0){
+            Double d = pq.poll();
 
+            Double newd = d/2;
+            deductedPollution += d-newd;
+            pq.add(newd);
+            result++;
+
+        }
+
+        return result;
+
+
+
+
+    }
 
 
 
