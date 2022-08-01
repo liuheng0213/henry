@@ -20,7 +20,7 @@ public class _07RandomGridE1_5_18and1_5_19 extends UnionFind {
             ids[i] = i;
         }
         for (int i = 0; i < this.treeHeight.length; i++) {
-            treeHeight[i] = 0;
+            treeHeight[i] = 1;
         }
     }
 
@@ -54,13 +54,13 @@ public class _07RandomGridE1_5_18and1_5_19 extends UnionFind {
             return;
         }
 
+
         if (treeHeight[pRoot] < treeHeight[qRoot]) {
             ids[pRoot] = qRoot;
-        } else if (treeHeight[pRoot] > treeHeight[qRoot]) {
+            treeHeight[qRoot] += treeHeight[pRoot];
+        } else {
             ids[qRoot] = pRoot;
-        } else {  //高度相等
-            ids[qRoot] = pRoot;
-            treeHeight[pRoot]++;
+            treeHeight[pRoot] += treeHeight[qRoot];
         }
 
         //add
