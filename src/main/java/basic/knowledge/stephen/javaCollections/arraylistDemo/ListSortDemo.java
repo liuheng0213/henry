@@ -28,12 +28,16 @@ public class ListSortDemo {
 
         //取出同为Y的最新哪个, 或同为typeid的最新哪个
         sortBySingleAndDate(list);
+
         for(TemplateAdvVo vo:list){
             System.out.println(vo);
         }
+
+
     }
 
     private static void sortBySingleAndDate(List<TemplateAdvVo> list) {
+
         TreeSet<TemplateAdvVo> set = new TreeSet<TemplateAdvVo>(new Comparator<TemplateAdvVo>(){
             @Override
             public int compare(TemplateAdvVo o1, TemplateAdvVo o2) {
@@ -44,6 +48,7 @@ public class ListSortDemo {
                 }
             }
         });
+
         set.addAll(list);
         list.clear();;
         list.addAll(set);

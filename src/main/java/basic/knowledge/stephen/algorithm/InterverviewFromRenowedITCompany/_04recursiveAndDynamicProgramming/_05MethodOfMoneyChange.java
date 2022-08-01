@@ -4,7 +4,7 @@ public class _05MethodOfMoneyChange {
     public static void main(String[] args) {
         _05MethodOfMoneyChange methodOfMoneyChange = new _05MethodOfMoneyChange();
         int[] arr = new int[]{5, 10, 25, 1, 100, 50};
-        int methods = methodOfMoneyChange.getRes(arr, 35);
+        int methods = methodOfMoneyChange.getRes(arr, 180);
         System.out.println(methods);
     }
 

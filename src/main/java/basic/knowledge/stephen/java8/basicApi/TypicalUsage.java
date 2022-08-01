@@ -34,7 +34,7 @@ public class TypicalUsage {
 //
 //        flapMap();
 //
-       peekDemo();
+        peekDemo();
 //
 //        skipAndLimit();
 //
@@ -58,7 +58,7 @@ public class TypicalUsage {
 //
 //        sortedDemo();
 
- //      GetIndex();
+        //      GetIndex();
 
     }
 
@@ -83,6 +83,7 @@ public class TypicalUsage {
      * by design, is stateful and hence may not be useful in parallel streams:
      */
     private static void iterateDemo() {
+
         Stream<Integer> evenNumStream = Stream.iterate(2, i -> i * 2);
 
         List<Integer> collect = evenNumStream
@@ -90,6 +91,7 @@ public class TypicalUsage {
                 .collect(Collectors.toList());
 
         assertEquals(collect, Arrays.asList(2, 4, 8, 16, 32));
+
     }
 
     private static void generateDemo() {
@@ -100,6 +102,7 @@ public class TypicalUsage {
     }
 
     private static void groupAndReduce() {
+
         Employee_2[] arrayOfEmps = {
                 new Employee_2(1, "Jeff Bezos", 100000.0),
                 new Employee_2(2, "Jeff Be", 100000.0),

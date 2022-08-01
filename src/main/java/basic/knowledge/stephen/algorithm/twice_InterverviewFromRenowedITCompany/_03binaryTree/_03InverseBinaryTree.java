@@ -6,7 +6,14 @@ import java.util.LinkedList;
 
 public class _03InverseBinaryTree {
 
-
+    private Node inverseBin(Node cur) {
+        if (cur == null) {
+            return cur;
+        }
+        cur.left = inverseBin(cur.right);
+        cur.right = inverseBin(cur.left);
+        return cur;
+    }
 
 
 }

@@ -1,5 +1,8 @@
 package basic.knowledge.stephen.algorithm.InterverviewFromRenowedITCompany._09others;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 //在有序旋转数组中找到最小值
 public class _13FindMinInOderedRotaryArr {
     public static void main(String[] args) {
@@ -8,6 +11,8 @@ public class _13FindMinInOderedRotaryArr {
         int res = findMinInOderedRotaryArr.getMin(arr);
         System.out.println(res);
     }
+
+
 
     private int getMin(int[] arr) {
         int low = 0;
@@ -42,4 +47,6 @@ public class _13FindMinInOderedRotaryArr {
         }
         return Math.min(arr[low], arr[high]);
     }
+
+
 }

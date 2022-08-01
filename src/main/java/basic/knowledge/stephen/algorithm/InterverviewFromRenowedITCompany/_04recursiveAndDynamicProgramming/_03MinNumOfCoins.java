@@ -5,7 +5,7 @@ package basic.knowledge.stephen.algorithm.InterverviewFromRenowedITCompany._04re
 public class _03MinNumOfCoins {
     public static void main(String[] args) {
         _03MinNumOfCoins minNumOfCoins = new _03MinNumOfCoins();
-        int[] arr = {5, 2, 3};
+        int[] arr = {5, 2, 3,10};
         int aim = 20;
         int res = minNumOfCoins.minCoins(arr, aim);
         System.out.println(res);

@@ -3,8 +3,8 @@ package basic.knowledge.stephen.algorithm.InterverviewFromRenowedITCompany._04re
 public class _04RobotGetDestination_DP {
     public static void main(String[] args) {
         _04RobotGetDestination_DP robotGetDestination = new _04RobotGetDestination_DP();
-        int res = robotGetDestination.ways(5, 4, 5, 3);
-        int res1 = robotGetDestination.ways1(5, 4, 5, 3);
+        int res = robotGetDestination.ways(8, 2, 6, 3);
+        int res1 = robotGetDestination.ways1(8, 2, 6, 3);
         System.out.println(res);
         System.out.println(res1);
         System.out.println(res == res1);

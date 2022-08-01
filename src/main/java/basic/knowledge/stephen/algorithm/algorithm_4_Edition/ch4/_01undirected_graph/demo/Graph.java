@@ -16,7 +16,7 @@ public class Graph {
         adj = new Bag[this.v];
         for (int i = 0; i < this.v; i++) {
             adj[i] = new Bag<>();
-        }
+        };
         //add edage
         for (int i = 0; i < totalE; i++) {
             int v = in.readInt();

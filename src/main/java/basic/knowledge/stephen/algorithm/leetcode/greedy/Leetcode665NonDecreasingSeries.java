@@ -26,7 +26,7 @@ package basic.knowledge.stephen.algorithm.leetcode.greedy;
 public class Leetcode665NonDecreasingSeries {
     public static void main(String[] args) {
         Leetcode665NonDecreasingSeries nonDecreasingSeries = new Leetcode665NonDecreasingSeries();
-        int[] arr = new int[]{5,12,7};
+        int[] arr = new int[]{3,4,2,3};
         boolean flag = nonDecreasingSeries.checkPossibility(arr);
         System.out.println(flag);
     }
@@ -48,6 +48,7 @@ public class Leetcode665NonDecreasingSeries {
             if (i >= 2 && nums[i - 2] > nums[i]) {
                 // 使当前数字等于前一个数字
                 nums[i] = nums[i - 1];
+
             }
             //只有i - 1  比 i 大 当然改  i  - 1  了
             else {

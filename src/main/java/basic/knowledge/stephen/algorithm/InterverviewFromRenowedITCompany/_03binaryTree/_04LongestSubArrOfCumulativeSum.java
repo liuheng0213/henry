@@ -1,6 +1,7 @@
 package basic.knowledge.stephen.algorithm.InterverviewFromRenowedITCompany._03binaryTree;
 
 import java.util.HashMap;
+
 //二叉树的节点和等于targetSum的最大深度
 public class _04LongestSubArrOfCumulativeSum {
     public static void main(String[] args) {
@@ -31,6 +32,7 @@ public class _04LongestSubArrOfCumulativeSum {
 
     /**
      * 从head往下查找求出最大的length
+     *
      * @param head
      * @param targetSum
      * @return

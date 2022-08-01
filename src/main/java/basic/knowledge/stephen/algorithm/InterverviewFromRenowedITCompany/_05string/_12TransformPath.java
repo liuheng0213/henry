@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
+import java.util.TreeSet;
 
 /**
  * 字符串的转换路径问题, 找到所有的A-->B的最短路径
@@ -17,7 +18,10 @@ public class _12TransformPath {
         String start = "hit";
         String end = "cog";
         String[] list = {"hot","dot","dog","lot","log","cog"};
-
+        TreeSet<Integer> set = new TreeSet<>();
+        set.add(1);
+        set.add(2);
+        set.add(1);
         _12TransformPath transformPath = new _12TransformPath();
         LinkedList<LinkedList<String>> res = transformPath.findMinPath(start, end, list);
 
@@ -60,8 +64,8 @@ public class _12TransformPath {
                 dfs(paths, subList, next, to, disMap, nextMap);
                 subList.pollLast();
             }
-
         }
+
     }
 
 

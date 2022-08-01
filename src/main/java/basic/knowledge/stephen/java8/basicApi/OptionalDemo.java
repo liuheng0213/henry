@@ -4,11 +4,15 @@ import java.util.Optional;
 
 public class OptionalDemo {
     public static void main(String[] args) {
+
         optionalDemo();
+
     }
 
     private static void optionalDemo() {
+
         OptionalDemo java8Tester = new OptionalDemo();
+
         Integer value1 = null;
         Integer value2 = new Integer(10);
 
@@ -17,7 +21,9 @@ public class OptionalDemo {
 
         // Optional.of - 如果传递的参数是 null，抛出异常 NullPointerException
         Optional<Integer> b = Optional.of(value2);
-        System.out.println(java8Tester.sum(a,b));
+
+        System.out.println(java8Tester.sum(a, b));
+
     }
 
     private Integer sum(Optional<Integer> a, Optional<Integer> b) {
@@ -28,9 +34,15 @@ public class OptionalDemo {
 
         // Optional.orElse - 如果值存在，返回它，否则返回默认值
         Integer value1 = a.orElse(new Integer(0));
+        System.out.println("value1==> " + value1);
 
         //Optional.get - 获取值，值需要存在
         Integer value2 = b.get();
+        System.out.println("value2==> " + value2);
+
+
         return value1 + value2;
+
     }
+
 }

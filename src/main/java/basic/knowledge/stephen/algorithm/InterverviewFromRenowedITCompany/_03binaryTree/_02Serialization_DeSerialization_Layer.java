@@ -24,6 +24,7 @@ public class _02Serialization_DeSerialization_Layer {
         System.out.println(reStr);
         head = object.deSerialize(reStr);
         System.out.println(head);
+        System.out.println(head);
     }
 
     public Node deSerialize(String str) {

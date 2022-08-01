@@ -1,6 +1,8 @@
 package basic.knowledge.stephen.algorithm.InterverviewFromRenowedITCompany._05string;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 //找到字符串的最长无重复字符子串
 public class _19LongestNonRepulicate {
@@ -8,9 +10,7 @@ public class _19LongestNonRepulicate {
         _19LongestNonRepulicate longestNonRepulicate = new _19LongestNonRepulicate();
         String str = "ABCBCDEFG";
         int res = longestNonRepulicate.longestNonRepulicate(str);
-        System.out.println(res);
     }
-
 
 
     private int longestNonRepulicate(String str) {

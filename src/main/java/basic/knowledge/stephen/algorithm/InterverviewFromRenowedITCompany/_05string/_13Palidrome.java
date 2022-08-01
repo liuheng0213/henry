@@ -36,16 +36,26 @@ public class _13Palidrome {
                 res[right--] = chars[j--];
             }
         }
-
         return String.valueOf(res);
     }
 
     private int[][] getDp(char[] chars) {
         int[][] dp = new int[chars.length][chars.length];
         //int i = dp.length - 1; i >= 1; i--  绝对不可以 否则  dp[i][j]内循环第一个进不去  那么最后dp[0][lenth - 1] == 0
-        for (int i = dp.length - 2; i >= 0; i--) {
-            dp[i +1][i] = chars[i +1] == chars[i] ? 0 : 1;
-            for (int j = i + 1; j <= dp[0].length - 1; j++) {
+//        for (int i = dp.length - 2; i >= 0; i--) {
+//            dp[i +1][i] = chars[i +1] == chars[i] ? 0 : 1;
+//            for (int j = i + 1; j <= dp[0].length - 1; j++) {
+//                if (chars[i] == chars[j]) {
+//                    dp[i][j] = dp[i + 1][j - 1];
+//                } else {
+//                    dp[i][j] = Math.min(dp[i + 1][j], dp[i][j - 1]) + 1;
+//                }
+//            }
+//        }
+
+        for (int i = 0 ; i <= dp.length - 2; i++) {
+            dp[i][i + 1] = chars[i +1] == chars[i] ? 0 : 1;
+            for (int j = i + 2; j <= dp[0].length - 1; j++) {
                 if (chars[i] == chars[j]) {
                     dp[i][j] = dp[i + 1][j - 1];
                 } else {

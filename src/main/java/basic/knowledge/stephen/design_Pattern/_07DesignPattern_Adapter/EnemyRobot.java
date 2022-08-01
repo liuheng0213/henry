@@ -7,8 +7,8 @@ import java.util.Random;
 public class EnemyRobot {
     Random generator = new Random();
     public void smashWithHands(){
-        int attacjDamage = generator.nextInt(10) + 1;
-        System.out.println("Enemy Robot Causes " + attacjDamage + " Damage With Its Hands");
+        int attackDamage = generator.nextInt(10) + 1;
+        System.out.println("Enemy Robot Causes " + attackDamage + " Damage With Its Hands");
     }
 
     public void walkForward(){
