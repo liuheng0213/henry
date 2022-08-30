@@ -53,10 +53,13 @@ public class _05HeightWeightedQuickUnionE1_5_14 {
 
         if (treeHeight[pRoot] < treeHeight[qRoot]) {
             ids[pRoot] = qRoot;
-            treeHeight[qRoot] += treeHeight[pRoot];
-        } else {
+
+        } else if(treeHeight[pRoot] > treeHeight[qRoot]){
             ids[qRoot] = pRoot;
-            treeHeight[pRoot] += treeHeight[qRoot];
+
+        }else{
+            ids[qRoot] = pRoot;
+            treeHeight[pRoot]++;
         }
 
 
