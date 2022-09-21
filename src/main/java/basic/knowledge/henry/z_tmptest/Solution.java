@@ -4,57 +4,57 @@ package basic.knowledge.henry.z_tmptest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Queue;
 import java.util.Stack;
+import java.util.TreeMap;
 
 public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        System.out.println(3 &48 &48);
-        boolean res = solution.isStrictlyPalindromic(9);
 
-        List<Integer> edges[] = new ArrayList[10];
-        for(int i = 0;i< 10;i++){
-            edges[i] = new ArrayList<>();
-        }
-        edges[5].add(1);
-        edges[0].add(1);
-        edges[0].add(2);
-        Arrays.sort(edges,(a,b)-> a.size()- b.size());
-        System.out.println();
-        Queue<int[]> queue = new LinkedList<>();
+        int[] arr = new int[]{4, 2, 1, 4, 3, 4, 5, 8, 15};
 
-        String str = "sssba";
-        boolean a = str.contains("a");
-        int s = str.indexOf("s");
-
-        String substring = str.substring(4,5);
-        System.out.println();
-
+        System.out.println(5 & 1);
+        solution.lengthOfLIS(arr, 3);
     }
 
+    public int lengthOfLIS(int[] nums, int k) {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        int max = 0;
+        for (int num : nums) {
+            int from = num - k;
+            int to = num;
+            int pre = 0;
+            for (int v : map.subMap(from, to).values()) {
+                pre = Math.max(pre, v);
+            }
+            map.put(num, pre + 1);
+            max = Math.max(pre + 1, max);
+        }
+        return max;
+    }
+
+
+    //for amazon
     public boolean isStrictlyPalindromic(int n) {
 
         ArrayList<Integer> list = null;
 
-        for(int base = 2;base<= n -2;base++){
+        for (int base = 2; base <= n - 2; base++) {
             list = new ArrayList<>();
             int temp = n;
-            while (temp > 0){
-                list.add(temp % base) ;
-                temp /= base ;
+            while (temp > 0) {
+                list.add(temp % base);
+                temp /= base;
             }
 
             int l = 0;
-            int r = list.size() -1;
+            int r = list.size() - 1;
 
-            while(l <= r){
-                if(list.get(l) != list.get(r)){
+            while (l <= r) {
+                if (list.get(l) != list.get(r)) {
                     return false;
                 }
                 l++;
@@ -133,7 +133,6 @@ public class Solution {
      * <p>
      * Note: Single server is also a subArray, return 0 if no such subArray can be found.
      *
-
      * @return
      */
     //TreeSet o(nlogn)
@@ -145,18 +144,18 @@ public class Solution {
 
         int res = 0;
         long sum = 0;
-        for(int j = 0;j<n;j++){
-            sum+=runningCosts[j];
+        for (int j = 0; j < n; j++) {
+            sum += runningCosts[j];
             set.add(chargeTimes[j]);
 
-            if(set.peek() + sum * (j - i + 1) <= budget){
-                res = Math.max(res,j - i + 1);
+            if (set.peek() + sum * (j - i + 1) <= budget) {
+                res = Math.max(res, j - i + 1);
 
-            }else{
-                if(set.peek()== chargeTimes[i]){
+            } else {
+                if (set.peek() == chargeTimes[i]) {
                     set.poll();
                 }
-                sum-=runningCosts[i++];
+                sum -= runningCosts[i++];
             }
         }
 
@@ -173,81 +172,82 @@ public class Solution {
      */
     public int sumSubarrayMins(int[] arr) {
         Stack<Integer> st = new Stack<>();
-        int mod =1000000007;
+        int mod = 1000000007;
 
         long res = 0;
-        for(int i = 0;i< arr.length;i++){
-            while(!st.isEmpty() && arr[st.peek()] >= arr[i]){
+        for (int i = 0; i < arr.length; i++) {
+            while (!st.isEmpty() && arr[st.peek()] >= arr[i]) {
                 int pop = st.pop();
-                int left = st.isEmpty() ? -1:st.peek();
+                int left = st.isEmpty() ? -1 : st.peek();
 
-                res += (1L*arr[pop] * (pop - left) * (i - pop))%mod;
-                res = res%mod;
+                res += (1L * arr[pop] * (pop - left) * (i - pop)) % mod;
+                res = res % mod;
             }
             st.push(i);
         }
 
-        while(!st.isEmpty()){
+        while (!st.isEmpty()) {
             int pop = st.pop();
-            int left = st.isEmpty() ? -1:st.peek();
+            int left = st.isEmpty() ? -1 : st.peek();
 
-            res += (1L*arr[pop]* (pop - left) * (arr.length - pop))%mod;
-            res = res%mod;
+            res += (1L * arr[pop] * (pop - left) * (arr.length - pop)) % mod;
+            res = res % mod;
         }
 
-        return (int)res;
+        return (int) res;
     }
 
     /**
      * 1041
+     *
      * @param instructions
      * @return
      */
     public boolean isRobotBounded(String instructions) {
-        char[] ins=instructions.toCharArray();
-        int x=0;
-        int y=0;
-        char dir='N';
+        char[] ins = instructions.toCharArray();
+        int x = 0;
+        int y = 0;
+        char dir = 'N';
 
-        for(char pos:ins){
+        for (char pos : ins) {
 
-            switch(pos){
+            switch (pos) {
                 case 'G':
-                    if(dir=='E')
+                    if (dir == 'E')
                         x++;
-                    else if(dir=='W')
+                    else if (dir == 'W')
                         x--;
-                    else if(dir=='N')
+                    else if (dir == 'N')
                         y++;
-                    else if(dir=='S')
+                    else if (dir == 'S')
                         y--;
                     break;
                 case 'L':
-                    if(dir=='E')
-                        dir='N';
-                    else if(dir=='W')
-                        dir='S';
-                    else if(dir=='N')
-                        dir='W';
-                    else if(dir=='S')
-                        dir='E';
+                    if (dir == 'E')
+                        dir = 'N';
+                    else if (dir == 'W')
+                        dir = 'S';
+                    else if (dir == 'N')
+                        dir = 'W';
+                    else if (dir == 'S')
+                        dir = 'E';
                     break;
                 case 'R':
-                    if(dir=='E')
-                        dir='S';
-                    else if(dir=='W')
-                        dir='N';
-                    else if(dir=='N')
-                        dir='E';
-                    else if(dir=='S')
-                        dir='W';
+                    if (dir == 'E')
+                        dir = 'S';
+                    else if (dir == 'W')
+                        dir = 'N';
+                    else if (dir == 'N')
+                        dir = 'E';
+                    else if (dir == 'S')
+                        dir = 'W';
                     break;
             }
 
         }
 
 
-        if((x==0 && y==0) || dir!='N'){
+        if ((x == 0 && y == 0) || dir != 'N') {
             return true;
         }
 

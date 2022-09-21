@@ -1,0 +1,26 @@
+什么是类的部分mock（partial mock）？
+A：部分mock是说一个类的方法有些是实际调用，有些是使用mockito的stubbing（桩实现）。
+
+
+
+为什么需要部分mock？
+
+A：当需要测试一个组合方法（一个方法需要其它多个方法协作）的时候，
+某个叶子方法（只供别人调用，自己不依赖其它反复）已经被测试过，
+我们其实不需要再次测试这个叶子方法，so，让叶子打桩实现返回结果，上层方法实际调用并测试。
+
+mockito实现部分mock的两种方式：spy和callRealMethod()
+
+总结：
+
+    spy和callrealmethod都可以实现部分mock，唯一不同的是通过spy做的桩实现仍然会调用实际方法（我都怀疑这是不是作者的bug）。
+
+   ★ 批注：spy方法需要使用doReturn方法才不会调用实际方法。
+
+
+Mockito.spy() is a recommended way of creating partial mocks.
+The reason is it guarantees real methods are called against correctly constructed object
+because you're responsible for constructing the object passed to spy() method.
+
+reference to:
+https://www.cnblogs.com/softidea/p/4204389.html

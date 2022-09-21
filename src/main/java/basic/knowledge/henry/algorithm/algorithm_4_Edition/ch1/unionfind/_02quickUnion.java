@@ -35,10 +35,15 @@ public class _02quickUnion {
      * @return
      */
     public int find(int p) {
-        while (p != ids[p]) {
-            p = ids[p];
+//        while (p != ids[p]) {
+//            p = ids[p];
+//        }
+//        return p;
+
+        if(p == ids[p]){
+            return p;
         }
-        return p;
+        return find(ids[p]);
     }
 
     public void union(int p, int q) {
