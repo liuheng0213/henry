@@ -41,6 +41,9 @@ public class SumSegmentTree {
 
 
     public void update(SegmentTreeNode root, int index, int value) {
+        if(root == null){
+            return;
+        }
         if (root.start == root.end && root.end == index) {
             root.sum = value;
             return;
@@ -54,7 +57,9 @@ public class SumSegmentTree {
             update(root.right, index, value);
         }
 
-        root.sum = root.left.sum + root.right.sum;
+        if (root.right != null && root.left != null) {
+            root.sum = root.left.sum + root.right.sum;
+        }
     }
 
     public int query(SegmentTreeNode root, int start, int end) {

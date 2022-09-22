@@ -33,6 +33,9 @@ public class MaxSegmentTree {
 
     // 单点更新的代码及注释
     public void modify(SegmentTreeNode root, int index, int value) {
+        if(root == null){
+            return;
+        }
         // write your code here
         if (root.start == root.end && root.start == index) { // 找到被改动的叶子节点
             root.max = value; // 改变value值
@@ -41,9 +44,10 @@ public class MaxSegmentTree {
         int mid = (root.start + root.end) / 2; // 将当前节点区间分割为2个区间的分割线
         if (index <= mid) { // 如果index在当前节点的左边
             modify(root.left, index, value); // 递归操作
-            root.max = Math.max(root.right.max, root.left.max); // 可能对当前节点的影响
         } else {            // 如果index在当前节点的右边
             modify(root.right, index, value); // 递归操作
+        }
+        if (root.right != null && root.left != null) {
             root.max = Math.max(root.left.max, root.right.max); // 可能对当前节点的影响
         }
         return;

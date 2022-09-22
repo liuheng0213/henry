@@ -75,12 +75,12 @@ public class _02quickUnion {
 
             unionfind.union(p, q);
 
-            StdOut.println("p = " + p + ", q = " + q);
+            System.out.println("p = " + p + ", q = " + q);
 
 
         }
 
-        StdOut.println(unionfind.count() + "Components");
+        System.out.println(unionfind.count() + "Components");
     }
 
 

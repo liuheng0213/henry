@@ -5,7 +5,7 @@ public class MinSegmentTree {
         int[] A = new int[]{1, 4, 2, 3, 6, 1, -7, 34, 22};
         MinSegmentTree minSegmentTree = new MinSegmentTree();
         SegmentTreeNode root = minSegmentTree.build(A);
-        minSegmentTree.modify(root, 6, 27);
+        minSegmentTree.modify(root, 9, 27);
         int query = minSegmentTree.query(root, 6, 7);
         System.out.println(query);
     }
@@ -34,6 +34,9 @@ public class MinSegmentTree {
 
 
     private void modify(SegmentTreeNode root, int index, int value) {
+        if(root == null){
+            return;
+        }
         if (root.start == root.end && root.end == index) {
             root.min = value;
             return;
@@ -41,11 +44,19 @@ public class MinSegmentTree {
 
         int mid = (root.start + root.end) / 2;
         if (index <= mid) {
+            if(root.left == null){
+                System.out.println("node.left=="+root.left);
+            }
             modify(root.left, index, value);
         } else {
+            if(root.right == null){
+                System.out.println("node.right=="+root.right);
+            }
             modify(root.right, index, value);
         }
-        root.min = Math.min(root.right.min, root.left.min);
+        if(root.right != null && root.left != null){
+            root.min = Math.min(root.right.min, root.left.min);
+        }
     }
 
     public int query(SegmentTreeNode root, int start, int end) {
@@ -53,7 +64,7 @@ public class MinSegmentTree {
             throw new RuntimeException("wrong parameters");
         }
         int ans = Integer.MAX_VALUE;
-        if (start > root.end || end < root.start) {
+        if (root == null ||start > root.end || end < root.start) {
             return ans;
         }
 
