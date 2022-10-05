@@ -1,6 +1,7 @@
 package basic.knowledge.henry.z_tmptest;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,28 +14,13 @@ public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
 
+        System.out.println(Integer.valueOf("06"));
 
-        int[] arr = new int[]{4, 2, 1, 4, 3, 4, 5, 8, 15};
 
-        System.out.println(5 & 1);
-        solution.lengthOfLIS(arr, 3);
+
     }
 
-    public int lengthOfLIS(int[] nums, int k) {
-        TreeMap<Integer, Integer> map = new TreeMap<>();
-        int max = 0;
-        for (int num : nums) {
-            int from = num - k;
-            int to = num;
-            int pre = 0;
-            for (int v : map.subMap(from, to).values()) {
-                pre = Math.max(pre, v);
-            }
-            map.put(num, pre + 1);
-            max = Math.max(pre + 1, max);
-        }
-        return max;
-    }
+
 
 
     //for amazon

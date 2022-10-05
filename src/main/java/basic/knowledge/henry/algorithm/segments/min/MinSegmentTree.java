@@ -2,6 +2,9 @@ package basic.knowledge.henry.algorithm.segments.min;
 
 public class MinSegmentTree {
     public static void main(String[] args) {
+        System.out.println(Math.pow(2, 3));
+
+
         int[] A = new int[]{1, 4, 2, 3, 6, 1, -7, 34, 22};
         MinSegmentTree minSegmentTree = new MinSegmentTree();
         SegmentTreeNode root = minSegmentTree.build(A);

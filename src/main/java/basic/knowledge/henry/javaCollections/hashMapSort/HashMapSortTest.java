@@ -39,12 +39,7 @@ public class HashMapSortTest {
             }
         });
 
-        TreeSet<User> objects = new TreeSet<>(new Comparator<User>() {
-            @Override
-            public int compare(User o1, User o2) {
-                return 0;
-            }
-        });
+
         //linkedHashMap can ensure the sequence in which data was put into the map
         LinkedHashMap<Integer,User> sortedUsers = new LinkedHashMap<>();
         //i use iterator to iterate the entryList

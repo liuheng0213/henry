@@ -1,0 +1,134 @@
+package basic.knowledge.tmp;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class Solution {
+    public static void main(String[] args) {
+        List<Integer>[] adjList = new ArrayList[1];
+        Solution solution = new Solution();
+        ArrayList<Integer>[] edges = new ArrayList[1];
+        int i = solution.numberOfGoodPaths(new int[]{1,3,2,1,3}, new int[][]{{0, 1}, {0,2}, {2,3}, {2, 4}});
+
+        System.out.println("");
+
+    }
+
+    public int numberOfGoodPaths(int[] vals, int[][] edges) {
+        int n = vals.length;
+        int sum = n;
+
+        // create adjacency list
+        List<List<Integer>> adjList = new ArrayList<>();
+
+        // create sortedmap with key as node value and value as list of index
+        TreeMap<Integer, List<Integer>> tm = new TreeMap<>();
+
+        // create unionfind
+        UnionFind uf = new UnionFind(n);
+
+        for (int i = 0; i < n; i++) { //O(N)
+            adjList.add(new ArrayList<>());
+            if (!tm.containsKey(vals[i])) {
+                tm.put(vals[i], new ArrayList<>());
+            }
+            tm.get(vals[i]).add(i);
+        }
+        for (int[] edge : edges) { //O(N)
+            adjList.get(edge[0]).add(edge[1]);
+            adjList.get(edge[1]).add(edge[0]);
+        }
+
+        // traverse node values from lowest to highest
+        Map.Entry<Integer, List<Integer>> curr = tm.firstEntry();
+        while (curr != null) {
+            List<Integer> listNodes = curr.getValue();
+
+            // for each node union with neighbor if neighbor value is
+            // lower or equal to node value
+            for (Integer node : listNodes) {
+                List<Integer> neighbors = adjList.get(node);
+                for (Integer neighbor : neighbors) {
+                    if (vals[node] >= vals[neighbor]) {
+                        uf.merge(node,neighbor);
+                    }
+                }
+            }
+
+            // check if each node is in union with other node with
+            // same value
+            if (listNodes.size() > 1) {
+                Map<Integer, Integer> freq = new HashMap<>();
+
+                // create frequency map of parent, to count number of nodes of same value in each set
+                for (int i = 0; i < listNodes.size(); i++) {
+                    int parent = uf.find(listNodes.get(i));
+                    System.out.println(parent+"==="+vals[parent]);
+                    freq.put(parent, freq.getOrDefault(parent, 0) + 1);
+                }
+
+                // apply arithmetic progression formula to find sum of good paths
+                for (int parentKey : freq.keySet()) {
+                    int frequency = freq.get(parentKey) - 1;
+                    System.out.println("--->" + frequency);
+                    sum += (frequency * (frequency + 1)) / 2;
+                }
+//                int frequency = listNodes.size() - 1;
+//                sum+=(frequency * (frequency + 1)) / 2;
+            }
+
+            curr = tm.higherEntry(curr.getKey());
+        }
+        return sum;
+    }
+}
+
+ class UnionFind {
+    int[] dp;
+    int[] rank;
+
+    public UnionFind(int n) {
+        dp = new int[n];
+        rank = new int[n];
+        for (int i = 0; i < n; i++) {
+            dp[i] = i;
+            rank[i] = 1;
+        }
+    }
+
+    public int find(int i) {
+        if (dp[i] == i) {
+            return i;
+        }
+        dp[i] = find(dp[i]);
+        return dp[i];
+    }
+
+    public boolean isSameSet(int x, int y) {
+        return find(x) == find(y);
+    }
+
+    public void merge(int x, int y) {
+        if (isSameSet(x, y)) {
+            return;
+        }
+        int xp = find(x);
+        int yp = find(y);
+
+        if (rank[xp] < rank[yp]) {
+            dp[xp] = yp;
+        } else {
+            dp[yp] = xp;
+            if (rank[xp] == rank[yp]) {
+                rank[xp]++;
+            }
+        }
+    }
+
+}

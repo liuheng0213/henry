@@ -2,12 +2,14 @@ package basic.knowledge.henry.algorithm.InterverviewFromRenowedITCompany._03bina
 
 
 import java.util.LinkedList;
+import java.util.TreeSet;
 
 /**
  * 按层级遍历序列化和反序列化
  */
 public class _02Serialization_DeSerialization_Layer {
     public static void main(String[] args) {
+
         Node head = new Node(1);
         head.left = new Node(2);
         head.left.left = new Node(4);
@@ -22,9 +24,8 @@ public class _02Serialization_DeSerialization_Layer {
         _02Serialization_DeSerialization_Layer object = new _02Serialization_DeSerialization_Layer();
         String reStr = object.serialize(head);
         System.out.println(reStr);
-        head = object.deSerialize(reStr);
-        System.out.println(head);
-        System.out.println(head);
+        Node head2 = object.deSerialize(reStr);
+        System.out.println(head2);
     }
 
     public Node deSerialize(String str) {

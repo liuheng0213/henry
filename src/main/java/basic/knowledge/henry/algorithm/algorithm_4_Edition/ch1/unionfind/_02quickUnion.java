@@ -43,7 +43,8 @@ public class _02quickUnion {
         if(p == ids[p]){
             return p;
         }
-        return find(ids[p]);
+        ids[p] = find(ids[p]);
+        return ids[p];
     }
 
     public void union(int p, int q) {
