@@ -2,6 +2,8 @@ package basic.knowledge.henry.design_Pattern._07DesignPattern_Adapter;
 
 //adapter
 public class EnemyRobotAdapter implements EnemyAttacker{
+
+    //adaptee
     EnemyRobot theRobot;
 
     public EnemyRobotAdapter(EnemyRobot theRobot) {

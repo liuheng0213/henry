@@ -8,6 +8,7 @@ public class _04RobotGetDestination_DP {
         System.out.println(res);
         System.out.println(res1);
         System.out.println(res == res1);
+
     }
 
 
