@@ -1,24 +1,38 @@
 package basic.knowledge.henry.algorithm.algorithm_4_Edition.ch3;
 
+import java.util.Arrays;
+
 public class BinarySearchDemo {
     public static void main(String[] args) {
         BinarySearchDemo binarySearchDemo = new BinarySearchDemo();
-        int[] arr = new int[]{2, 5, 7, 11};
-        int[] arr1 = new int[]{-2, -1};
-        int[] ends = new int[]{0, 1, 3, 4};
-        int[] arr3 = new int[]{1,5,5,8};
-        int index = binarySearchDemo.search(arr, 12);
-        //int jdkIndex = Arrays.binarySearch(arr, 12);// -5 jdk是 返回-(low + 1)
-        //int endsIndex = Arrays.binarySearch(ends, 0, 0, -3);
-        //System.out.println("jdkIndex : " + jdkIndex);
-       // System.out.println(index);
-        //System.out.println(endsIndex);
+        int[] arr = new int[]{2, 2, 8, 8, 8, 8, 11, 11, 13, 14, 15};
 
+        int index = binarySearchDemo.searchTargetWithSmallestIndex(arr, 11);
+        int index2 = Arrays.binarySearch(arr, 8);
+        System.out.println(index);
+        System.out.println(index2);
 
-        int res = binarySearchDemo.getLessPreIndexAnother(arr3, 2);
-        System.out.println(res);
+    }
 
+    private int searchTargetWithSmallestIndex(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        int mid;
 
+        int res = 0;
+        while (left <= right) {
+            mid = (left + right) >> 1;
+            if (arr[mid] == target) {
+                res = mid;
+                right = mid - 1;
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return res == 0 ? left : res;
     }
 
     private int search(int[] arr, int target) {
@@ -69,7 +83,6 @@ public class BinarySearchDemo {
     }
 
 
-
     public int getLessPreIndexAnother(int[] arr, int target) {
         int left = 0;
         int right = arr.length - 1;
@@ -86,11 +99,11 @@ public class BinarySearchDemo {
             }
         }
 
-        if(left < arr.length && arr[left] >= target){
+        if (left < arr.length && arr[left] >= target) {
             return left;
         }
 
-        if(right >=0 && arr[right] >= target){
+        if (right >= 0 && arr[right] >= target) {
             return right;
         }
         return arr.length;

@@ -1,10 +1,16 @@
 package basic.knowledge.henry.algorithm;
 
+import java.util.TreeSet;
+
 /**
  * 位运算运用
  */
 public class BitOperationTest {
     public static void main(String[] args) {
+        TreeSet<Integer> set = new TreeSet<>();
+        set.add(1);
+        Integer floor = set.floor(2);
+        System.out.println(floor);
         //test1();
         //test2();
         //test3();

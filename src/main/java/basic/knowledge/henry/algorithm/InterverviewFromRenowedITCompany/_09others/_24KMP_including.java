@@ -1,5 +1,11 @@
 package basic.knowledge.henry.algorithm.InterverviewFromRenowedITCompany._09others;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeSet;
+
 public class _24KMP_including {
     public static void main(String[] args) {
         _24KMP_including kmp = new _24KMP_including();
@@ -8,6 +14,14 @@ public class _24KMP_including {
 
         int i = "abcbcc".indexOf("bcc");
         System.out.println(i);
+
+        HashMap<Integer,Object> map = new HashMap<>();
+        TreeSet<Integer> set = new TreeSet<>();
+        set.add(1);
+        set.add(1);
+
+        System.out.println(2);
+
 
     }
 

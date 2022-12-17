@@ -6,6 +6,10 @@ import java.util.Stack;
 
 public class _08MonontousStackFurther {
     public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        System.out.println(list);
         int[] arr = {3, 1, 3, 4, 3, 5, 3, 2, 2};
         _08MonontousStackFurther obj = new _08MonontousStackFurther();
         int[][] res = obj.getNearestLessNoRepetitive(arr);

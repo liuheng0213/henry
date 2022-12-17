@@ -16,10 +16,7 @@ public class Main {
             String[] split = str.split("=");
             map.put(split[0], split[1]);
         }
-
-
         String[] ts = template.replaceAll("\n"," ").split(" ");
-
         String str = template;
         for(String t: ts){
             String newT = replaceStr(t,map);
@@ -27,11 +24,8 @@ public class Main {
                 str = template.replaceAll("0" + t.substring(1), newT);
             }
         }
-
         return str;
     }
-
-
 
     private static String replaceStr(String t, HashMap<String, String> map) {
         if(!t.startsWith("0")|| !map.containsKey(t.substring(1))){
@@ -41,7 +35,6 @@ public class Main {
         if(v.indexOf("0") == -1){
             return v;
         }
-
         String[] ts = v.replaceAll("\n"," ").split(" ");
         String strNew= v;
         for(String subT: ts){
@@ -49,13 +42,9 @@ public class Main {
             if(!newT.equals(subT)){
                 String regex = "0"+ subT.substring(1);
                 strNew = strNew.replaceAll(regex, newT);
-
             }
-
         }
-
         return strNew;
-
     }
 
 
