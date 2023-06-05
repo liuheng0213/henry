@@ -137,13 +137,11 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.0</version>
 		</dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
 
 
-        <dependency>
+
+
+		<dependency>
             <groupId>com.oracle.ojdbc</groupId>
             <artifactId>ojdbc10</artifactId>
             <version>19.3.0.0</version>
@@ -153,10 +151,6 @@
             <artifactId>testng</artifactId>
             <version>6.8.7</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>net.minidev</groupId>
-            <artifactId>json-smart</artifactId>
         </dependency>
 
 
@@ -172,8 +166,15 @@
             <artifactId>mockito-core</artifactId>
             <version>3.1.0</version>
         </dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
 
-    </dependencies>
+
+	</dependencies>
 
 	<build>
 		<plugins>

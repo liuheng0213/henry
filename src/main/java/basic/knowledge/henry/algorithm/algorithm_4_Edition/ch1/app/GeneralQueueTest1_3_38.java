@@ -2,7 +2,7 @@ package basic.knowledge.henry.algorithm.algorithm_4_Edition.ch1.app;
 
 import basic.knowledge.henry.algorithm.algorithm_4_Edition.ch1.queue.GeneralizedQueueByArray1_3_38;
 import basic.knowledge.henry.algorithm.algorithm_4_Edition.ch1.queue.GeneralizedQueueByLink1_3_38;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Iterator;
 

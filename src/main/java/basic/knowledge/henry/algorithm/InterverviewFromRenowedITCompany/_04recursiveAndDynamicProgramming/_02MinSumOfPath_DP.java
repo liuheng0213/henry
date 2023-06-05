@@ -7,6 +7,7 @@ public class _02MinSumOfPath_DP {
         _02MinSumOfPath_DP minSumOfPath = new _02MinSumOfPath_DP();
         int[][] arr = new int[][]{{1, 3, 5, 9}, {8, 1, 3, 4}, {5, 0, 6, 1}, {8, 8, 4, 0}};
         int res = minSumOfPath.getRes1(arr);
+        System.out.println(res);
         int res1 = minSumOfPath.getRes(arr);
         System.out.println(res1);
     }
