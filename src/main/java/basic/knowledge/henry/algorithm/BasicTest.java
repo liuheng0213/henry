@@ -16,7 +16,16 @@ public class BasicTest {
         //test5();
         //test6();
         //test7();
-        test8();
+//        test8();
+        test9();
+    }
+
+    private static void test9() {
+        HashMap<int[], Integer> map = new HashMap<>();
+        map.put(new int[]{1,1},2);
+        map.put(new int[]{1,1},3);
+
+        System.out.println("===");
     }
 
     private static void test8() {
@@ -133,4 +142,6 @@ public class BasicTest {
         System.out.println("size :" + queue.size());
 
     }
+
+
 }
