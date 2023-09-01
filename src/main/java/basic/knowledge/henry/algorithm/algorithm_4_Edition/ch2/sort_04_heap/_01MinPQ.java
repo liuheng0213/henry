@@ -73,11 +73,11 @@ public class _01MinPQ<Item extends Comparable<Item>> {
         if (n == items.length / 4) {
             resize(2 * n);
         }
-        Item max = items[1];
+        Item min = items[1];
         exch(items, 1, n--);
         items[n + 1] = null;
         sink(1);
-        return max;
+        return min;
     }
 
     protected void sink(int k) {
@@ -89,7 +89,7 @@ public class _01MinPQ<Item extends Comparable<Item>> {
         }
         while (k * 2 < n) {
             int j = 2 * k;
-            if (j < n && greater(items[j], items[j + 1])) {
+            if (j < n && greater(items[j], items[j + 1])) {//和更小的换
                 j++;
             }
             if (greater(items[k], items[j])) {  //k<j

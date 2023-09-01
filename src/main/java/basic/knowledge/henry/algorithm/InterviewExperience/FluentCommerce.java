@@ -1,8 +1,8 @@
-package basic.knowledge.henry.algorithm.FluentCommerce;
+package basic.knowledge.henry.algorithm.InterviewExperience;
 
 import java.util.HashMap;
 
-public class Main {
+public class FluentCommerce {
     public static void main(String[] args) {
         String properties = "firstName=John\nlastName=Smith\nfullName=0firstName 0lastName\nhello=Hello 0fullName";
         String template = "0hello\nWelcome to Fluent Commerce!";

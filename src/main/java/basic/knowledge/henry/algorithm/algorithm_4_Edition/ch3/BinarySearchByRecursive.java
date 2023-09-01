@@ -2,7 +2,7 @@ package basic.knowledge.henry.algorithm.algorithm_4_Edition.ch3;
 
 public class BinarySearchByRecursive {
     public static void main(String[] args) {
-        Integer[] sortedInteger = {2, 5, 6, 11, 15, 16, 19, 21};
+        Integer[] sortedInteger = {2, 5, 6, 8, 8, 8, 11, 15, 16, 19, 21};
         int i = binarySearchByRecursive(8, sortedInteger);
         System.out.println(i);
     }

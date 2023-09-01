@@ -7,19 +7,40 @@ public class BinarySearchDemo {
         BinarySearchDemo binarySearchDemo = new BinarySearchDemo();
         int[] arr = new int[]{2, 2, 8, 8, 8, 8, 11, 11, 13, 14, 15};
 
-        int index = binarySearchDemo.searchTargetWithSmallestIndex(arr, 11);
-        int index2 = Arrays.binarySearch(arr, 8);
+        int index = binarySearchDemo.searchTargetWithSmallestIndex(arr, 12);
+        int index2 = Arrays.binarySearch(arr, 12);
+        int index3 = binarySearchDemo.searchTargetWithBiggestIndex(arr, 3);
         System.out.println(index);
         System.out.println(index2);
+        System.out.println(index3);
 
     }
+    private int searchTargetWithBiggestIndex(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        int mid;
 
+        int res = -1;
+        while (left <= right) {
+            mid = (left + right) >> 1;
+            if (arr[mid] == target) {
+                res = mid;
+                left = mid + 1;
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return res == -1 ? left : res;
+    }
     private int searchTargetWithSmallestIndex(int[] arr, int target) {
         int left = 0;
         int right = arr.length - 1;
         int mid;
 
-        int res = 0;
+        int res = -1;
         while (left <= right) {
             mid = (left + right) >> 1;
             if (arr[mid] == target) {
@@ -32,7 +53,7 @@ public class BinarySearchDemo {
             }
         }
 
-        return res == 0 ? left : res;
+        return res == -1 ? left : res;
     }
 
     private int search(int[] arr, int target) {
