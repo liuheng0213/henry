@@ -86,7 +86,7 @@ public class MinMaxDivision {
     }
 
     //二分中的判断条件就是该数组是否可以划分小于等于k个块(or mid 是否偏大)，并且每个  注意是 每个  块的和都小于等于mid(sum)
-    //1如果符合条件，说明mid的值是过大的(或者是恰好的)，还可以再小一点(或者恰好相等)，但是按照我的代码以及 basic.knowledge.stephen.algorithm.algorithm_4_Edition.ch3.BinarySearchDemo
+    //1如果符合条件，说明mid的值是过大的(或者是恰好的)，还可以再小一点(或者恰好相等)，但是按照我的代码以及 basic.knowledge.henry.algorithm.algorithm_4_Edition.ch3.BinarySearchDemo
     // 1可以在取小的情况下取得结果 end = mid-1;  (ks == k 都如此 更别谈 ks < k了)
     // 1任何情况的切分 k之和各自都小于Mid  那么res都是小于或等于mid的  而下述方法的切分是最接近结果的  更别谈ks < k的情况 mid更加偏大
     //2 如果不符合条件，说明mid的值是过小的，start=mid + 1;
