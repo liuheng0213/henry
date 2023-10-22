@@ -1,5 +1,6 @@
 package basic.knowledge.henry.algorithm.leetcode.backtrack;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +8,28 @@ import java.util.List;
 //全排列
 public class Solution {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3};
-        Solution solution = new Solution();
-        List<List<Integer>> lists = solution.permute(nums);
-        System.out.println(lists);
+        BigInteger num =  fib(new BigInteger("0"),new BigInteger("1"),10);
+        System.out.println(num);
+    }
+//84266613096281243382112
+    public static BigInteger fibonacciModified(int t1, int t2, int n) {
+        // Write your code here
+        BigInteger num1 = new BigInteger(Integer.toString(t1));
+        BigInteger num2 = new BigInteger(Integer.toString(t2));
+
+        return fib(num1,num2,n);
+
+    }
+
+    private static BigInteger fib(BigInteger t1, BigInteger t2, int n){
+        if(n == 1){
+            return t1;
+        }else if(n == 2){
+            return t2;
+        }else if(n == 3){
+            return t1.add(t2.multiply(t2));
+        }
+        return fib(t1,t2,n - 2).add(fib(t1,t2,n - 1).multiply(fib(t1,t2,n - 1)));
     }
     public List<List<Integer>> permute(int[] nums) {
         // 首先是特判

@@ -7,8 +7,8 @@ import java.util.List;
 public class AirwallexTest {
     public static void main(String[] args) {
         int[] arr = new int[]{2, 4, 0, 5, 0, 6, 0, 1};
-        solve(arr);
-
+        solve_left0(arr);
+        System.out.println(Arrays.toString(arr));
 
         List<String> input = new ArrayList<>();
         input.add("cat");
@@ -58,8 +58,10 @@ public class AirwallexTest {
         Arrays.sort(charArray);
         return new String(charArray);
     }
+    
 
-    private static void solve(int[] arr) {
+
+    private static void solve_left0(int[] arr) {
         int j = 1;
         int i = 0;
         while (j < arr.length) {
