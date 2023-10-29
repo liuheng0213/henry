@@ -35,11 +35,12 @@ public class _05HeightWeightedQuickUnionE1_5_14 {
      * @param p
      * @return
      */
-    public int find(int p) {
-        while (p != ids[p]) {
-            p = ids[p];
+    public int find(int x) {
+        if (x != ids[x]) { //x's parent ids[x] is not x
+            //find ids[x]'s parent and set it to be x's parent
+            ids[x] = find(ids[x]);
         }
-        return p;
+        return ids[x];
     }
 
     public void union(int p, int q) {

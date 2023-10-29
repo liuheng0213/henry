@@ -34,17 +34,17 @@ public class _02quickUnion {
      * @param p
      * @return
      */
-    public int find(int p) {
+    public int find(int x) {
 //        while (p != ids[p]) {
 //            p = ids[p];
 //        }
 //        return p;
-
-        if(p == ids[p]){
-            return p;
+        if (x != ids[x]) { //x's parent ids[x] is not x
+            //find ids[x]'s parent and set it to be x's parent
+            // it must be the parent of x
+            ids[x] = find(ids[x]);
         }
-        ids[p] = find(ids[p]);
-        return ids[p];
+        return ids[x];
     }
 
     public void union(int p, int q) {

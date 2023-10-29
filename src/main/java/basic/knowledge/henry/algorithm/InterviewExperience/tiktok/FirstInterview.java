@@ -1,53 +1,15 @@
 package basic.knowledge.henry.algorithm.InterviewExperience.tiktok;
 
+import basic.knowledge.henry.algorithm.algorithm_4_Edition.entity.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class FirstInterview {
     public static void main(String[] args) {
-//        ArrayList<Integer>[] list = new ArrayList[3];
-//        FirstInterview firstInterview = new FirstInterview();
-////        System.out.println(String.valueOf(-6));
-//        int[][] arr = new int[][]{{2, 3}, {-6, 10}, {8, 16}, {-5, 6}};
-//        String str = firstInterview.solution(arr);
-//        System.out.println(str);
-
-        String s = counterGame(6);
-        System.out.println(s);
     }
 
-    public static String counterGame(long n) {
-        // Write your code here
-        return counterGame(n,0);
 
-    }
-
-    private static String counterGame(long n,int k){
-        if(n == 1){
-            if(k % 2 == 0){
-                return "Richard";
-            }else{
-                return "Louise";
-            }
-        }
-
-        long[] arr = findNextNumber(n);
-        if(arr[0] == 1){
-            n = n/2;
-        }else{
-            n -= arr[1];
-        }
-        return counterGame(n,k+1);
-    }
-
-    public static long[] findNextNumber(long num){
-        long p = (long) (Math.log(num) / Math.log(2));
-        if(Math.pow(2,p)== num){
-            return new long[]{1,p};
-        }else{
-            return new long[]{0,(long)Math.pow(2,p)};
-        }
-    }
 
     private String solution(int[][] arr) {
         int[] pre = arr[0];
