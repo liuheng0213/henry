@@ -1,6 +1,5 @@
 package basic.knowledge.henry.design_Pattern._14DesignPattern_proxy.static_proxy;
 
-import basic.knowledge.tmp.Solution;
 
 public class Main {
     public static void main(String[] args){
