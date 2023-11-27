@@ -22,7 +22,6 @@ public class LRUCache {
     public void put(int key, int value) {
         if(map.containsKey(key)){
             map.put(key,value);
-
         }else{
             if(map.size() >= c){
                 int firstKey = 0;

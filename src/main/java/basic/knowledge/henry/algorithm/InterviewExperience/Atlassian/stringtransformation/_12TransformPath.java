@@ -33,7 +33,7 @@ public class _12TransformPath {
             strList.add(list[i]);
         }
 
-        HashMap<String, List<String>> nextMap = getNexts(strList);
+        HashMap<String, List<String>> nextMap = getNexts(strList); // created a graph
         HashMap<String, Integer> disMap = bfs(start, nextMap);
         LinkedList<LinkedList<String>> paths = new LinkedList<>();
         dfs(paths, new LinkedList<>(), start, end, disMap, nextMap);
