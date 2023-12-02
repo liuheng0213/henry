@@ -1,11 +1,11 @@
-package basic.knowledge.henry.algorithm.InterviewExperience.Atlassian.stringtransformation;
+package basic.knowledge.henry.algorithm.InterviewExperience.Atlassian.stringGraph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-public class StringTransformation {
+public class Karat1 {
     int max = 1;
     List<String> maxList = new ArrayList<>();
 
@@ -55,8 +55,8 @@ public class StringTransformation {
         };
         String song3_1 = "Love Me Do";
 
-        StringTransformation stringTransformation = new StringTransformation();
-        List<String> solution = stringTransformation.solution(songs2, song2_1);
+        Karat1 karat1 = new Karat1();
+        List<String> solution = karat1.solution(songs2, song2_1);
         for (String str : solution) {
             System.out.println(str);
         }

@@ -51,15 +51,15 @@ public class _12TransformPath {
                      String cur, String to,
                      HashMap<String, Integer> disMap,
                      HashMap<String, List<String>> nextMap) {
-        subList.addLast(cur);
         if (cur.equals(to)) {
+            subList.addLast(cur);
             paths.add(new LinkedList<>(subList));
-            //subList.pollLast();
             return;
         }
 
         for (String next : nextMap.get(cur)) {
             if (disMap.get(cur) + 1 == disMap.get(next)) {
+                subList.addLast(cur);
                 dfs(paths, subList, next, to, disMap, nextMap);
                 subList.pollLast();
             }

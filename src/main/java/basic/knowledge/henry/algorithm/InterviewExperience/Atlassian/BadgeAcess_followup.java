@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 //https://leetcode.com/discuss/interview-experience/1504226/indeed-karat-interview
-public class BadgeAcess {
+public class BadgeAcess_followup {
     public static void main(String[] args) {
-        BadgeAcess badgeAcess = new BadgeAcess();
+        BadgeAcess_followup badgeAcess = new BadgeAcess_followup();
         String[][] badges = new String[][]{
                 {"Paul", "1355"},
                 {"Jennifer", "1910"},

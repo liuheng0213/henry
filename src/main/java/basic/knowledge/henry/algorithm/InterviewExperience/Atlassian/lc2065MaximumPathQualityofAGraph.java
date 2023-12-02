@@ -1,4 +1,5 @@
 package basic.knowledge.henry.algorithm.InterviewExperience.Atlassian;
 
-public class CherryPickUp {
+//lc2065
+public class lc2065MaximumPathQualityofAGraph {
 }
