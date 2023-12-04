@@ -20,7 +20,7 @@ public class Karat2 {
         String word1_3 = "wow";
         String word1_4 = "sec";
         String word1_5 = "bbaal";
-        List<int[]> ints = find(grid1, word1_5);
+        List<int[]> ints = find(grid1, word1_2);
 
         System.out.println();
 
@@ -61,7 +61,9 @@ public class Karat2 {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == target.charAt(0)) {
-                    dfs(i, j, grid, target, 0, new ArrayList<>());
+                    ArrayList<int[]> ints = new ArrayList<>();
+                    ints.add(new int[]{i,j});
+                    dfs(i, j, grid, target, 0, ints);
                 }
             }
         }
@@ -75,14 +77,12 @@ public class Karat2 {
 
         if(i == grid.length - 1 && j == grid[0].length - 1){
             if (index == target.length() - 1 && grid[i][j] == target.charAt(index)) {
-                tmp.add(new int[]{i, j});
                 list = new ArrayList<>(tmp);
                 return;
             }
             return;
         }
         if (index == target.length() - 1 && grid[i][j] == target.charAt(index)) {
-            tmp.add(new int[]{i, j});
             list = new ArrayList<>(tmp);
             return;
         }
@@ -91,15 +91,15 @@ public class Karat2 {
             int nextI = i + dirs[k][0];
             int nextJ = j + dirs[k][1];
 
-            if (nextI < 0 || nextJ < 0 || nextI > grid.length - 1 || nextJ > grid[0].length - 1) {
+            if (nextI > grid.length - 1 || nextJ > grid[0].length - 1) {
                 continue;
             }
+
             boolean flag = grid[i][j] == target.charAt(index);
             if (flag) {
-                tmp.add(new int[]{i, j});
+                tmp.add(new int[]{nextI, nextJ});
                 index++;
             }
-
             dfs(nextI, nextJ, grid, target, index, tmp);
             if (flag) {
                 tmp.remove(tmp.size() - 1);
