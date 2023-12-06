@@ -39,10 +39,12 @@ public class _12TransformPath {
             strList.add(list[i]);
         }
 
-        HashMap<String, List<String>> nextMap = getNexts(strList);
+        HashMap<String, List<String>> nextMap = getNexts(strList); // created a graph
         HashMap<String, Integer> disMap = bfs(start, nextMap);
         LinkedList<LinkedList<String>> paths = new LinkedList<>();
-        dfs(paths, new LinkedList<>(), start, end, disMap, nextMap);
+        LinkedList<String> subList = new LinkedList<>();
+        subList.add(start);
+        dfs(paths, subList, start, end, disMap, nextMap);
         return paths;
     }
 
@@ -52,14 +54,13 @@ public class _12TransformPath {
                      HashMap<String, Integer> disMap,
                      HashMap<String, List<String>> nextMap) {
         if (cur.equals(to)) {
-            subList.addLast(cur);
             paths.add(new LinkedList<>(subList));
             return;
         }
 
         for (String next : nextMap.get(cur)) {
             if (disMap.get(cur) + 1 == disMap.get(next)) {
-                subList.addLast(cur);
+                subList.addLast(next);
                 dfs(paths, subList, next, to, disMap, nextMap);
                 subList.pollLast();
             }
@@ -118,6 +119,7 @@ public class _12TransformPath {
         return list;
 
     }
+
 
 
 }

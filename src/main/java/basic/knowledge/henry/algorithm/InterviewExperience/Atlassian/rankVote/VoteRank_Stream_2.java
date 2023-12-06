@@ -1,4 +1,4 @@
-package basic.knowledge.henry.algorithm.InterviewExperience.Atlassian;
+package basic.knowledge.henry.algorithm.InterviewExperience.Atlassian.rankVote;
 
 import java.util.*;
 

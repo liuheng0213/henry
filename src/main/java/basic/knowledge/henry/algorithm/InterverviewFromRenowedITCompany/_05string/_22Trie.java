@@ -58,7 +58,7 @@ public class _22Trie {
         }
         char[] chars = word.toCharArray();
         TrieNode node = root;
-        node.path++;
+//        node.path++;
 
         int index = 0;
         for (int i = 0; i < chars.length; i++) {
@@ -81,7 +81,7 @@ public class _22Trie {
             char[] chars = word.toCharArray();
             TrieNode node = root;
             int index = 0;
-            node.path--;
+//            node.path--;
             for (int i = 0; i < chars.length; i++) {
                 index = chars[i] - 'a';
                 if (node.map[index].path-- == 1) {

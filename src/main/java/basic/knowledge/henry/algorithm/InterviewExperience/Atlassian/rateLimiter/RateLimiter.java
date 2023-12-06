@@ -1,4 +1,4 @@
-package basic.knowledge.henry.algorithm.InterviewExperience.Atlassian;
+package basic.knowledge.henry.algorithm.InterviewExperience.Atlassian.rateLimiter;
 
 import java.util.HashMap;
 import java.util.LinkedList;

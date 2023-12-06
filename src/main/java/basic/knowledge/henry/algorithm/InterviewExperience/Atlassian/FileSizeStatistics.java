@@ -5,13 +5,13 @@ import java.util.*;
 public class FileSizeStatistics {
     public static void main(String[] args) {
         FileSizeStatistics fileSizeStatistics = new FileSizeStatistics();
-        fileSizeStatistics.insert(new File("a", 100), "-1");
-        fileSizeStatistics.insert(new File("w", 200), "1");
-        fileSizeStatistics.insert(new File("c", 200), "1");
-        fileSizeStatistics.insert(new File("d", 300), "2");
-        fileSizeStatistics.insert(new File("f", 500), "1");
-        fileSizeStatistics.insert(new File("g", 400), "3");
-        fileSizeStatistics.insert(new File("e", 100), "-1");
+        fileSizeStatistics.insert(new File( 100), "-1");
+        fileSizeStatistics.insert(new File( 200), "1");
+        fileSizeStatistics.insert(new File( 200), "1");
+        fileSizeStatistics.insert(new File( 300), "2");
+        fileSizeStatistics.insert(new File( 500), "1");
+        fileSizeStatistics.insert(new File( 400), "3");
+        fileSizeStatistics.insert(new File(100), "-1");
 
         fileSizeStatistics.getTotalSize();
 
@@ -36,8 +36,7 @@ public class FileSizeStatistics {
             this.collectionId = collectionId;
         }
 
-        public File(String name, int size) {
-            this.name = name;
+        public File(int size) {
             this.size = size;
             this.collectionId = "";
         }
