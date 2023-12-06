@@ -35,7 +35,7 @@ public class SlidingWindowRateLimiter {
 
     public static void main(String[] args) {
         // Example usage
-        SlidingWindowRateLimiter rateLimiter = new SlidingWindowRateLimiter(5, 60); // Allow 5 requests per minute
+        SlidingWindowRateLimiter rateLimiter = new SlidingWindowRateLimiter(5, 10); // Allow 5 requests per minute
 
         for (int i = 0; i < 20; i++) {
             if (rateLimiter.allowRequest()) {
