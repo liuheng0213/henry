@@ -17,7 +17,6 @@ public class HashMapSortTest {
         originalUsers.put(1, new User("ssm",22));
         originalUsers.put(2, new User("xyz",32));
         originalUsers.put(5, new User("ssm",15));
-
         System.out.println(originalUsers);
         HashMap<Integer,User> sortedUsers = sortUsers(originalUsers);
         System.out.println(sortedUsers);

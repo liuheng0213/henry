@@ -73,8 +73,6 @@ public class VoteRank_Stream_string_key {
                 score++;
                 this.sequence = sequence;
             }
-
-
         }
 
         public Vote(String name) {
