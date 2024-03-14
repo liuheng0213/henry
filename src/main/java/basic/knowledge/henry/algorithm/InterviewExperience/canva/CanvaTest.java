@@ -1,4 +1,4 @@
-package basic.knowledge.henry.algorithm.InterviewExperience;
+package basic.knowledge.henry.algorithm.InterviewExperience.canva;
 
 import java.util.*;
 
@@ -6,12 +6,29 @@ public class CanvaTest {
     public static Integer EMPTY = 0;
     public static Integer UNPOPULATED = -1;
     public static Integer POPULATED = 1;
-
+    Map<String, Integer> map = new HashMap<>();
     public int[][] dirs = new int[][]{{-1, 1}, {0, 1}, {1, 1}, {-1, 0}, {1, 0}, {-1, -1}, {0, -1}, {1, -1}};
-
+    int[][] cells = new int[6][5];
     public static void main(String[] args) {
 
-        int[][] cells = new int[6][5];
+
+
+        CanvaTest canvaTest = new CanvaTest();
+
+
+        System.out.println(Arrays.deepToString(canvaTest.cells));
+        canvaTest.nextStep();
+        System.out.println("===========================");
+        System.out.println(Arrays.deepToString(canvaTest.cells));
+        canvaTest.nextStep();
+        System.out.println("===========================");
+        System.out.println(Arrays.deepToString(canvaTest.cells));
+    }
+
+    public CanvaTest(){
+        int m = cells.length;
+        int n = cells[0].length;
+
         cells[1][2] = 1;
         System.out.println(Arrays.deepToString(cells));
         System.out.println("===========================");
@@ -21,40 +38,31 @@ public class CanvaTest {
         cells[3][2] = 1;
         cells[3][3] = 1;
         cells[4][1] = 1;
-        CanvaTest canvaTest = new CanvaTest();
 
 
-        System.out.println(Arrays.deepToString(cells));
-        canvaTest.solution(cells);
-        System.out.println("===========================");
-        System.out.println(Arrays.deepToString(cells));
-        canvaTest.solution(cells);
-        System.out.println("===========================");
-        System.out.println(Arrays.deepToString(cells));
     }
 
-    private void solution(int[][] cells) {
-        int m = cells.length;
-        int n = cells[0].length;
-        Map<int[], Integer> map = new HashMap<>();
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                storeState(i, j, cells, map);
+    private void nextStep() {
+        for(int i =0;i< cells.length;i++){
+            for(int j =0;j< cells[0].length;j++){
+                changeState(i,j);
             }
         }
+
+
         //changeState
-        Iterator<int[]> iterator = map.keySet().iterator();
+        Iterator<String> iterator = map.keySet().iterator();
 
         while(iterator.hasNext()){
-            int[] key = iterator.next();
-            cells[key[0]][key[1]] = map.get(key);
+            String key = iterator.next();
+            cells[key.charAt(0) - '0'][key.charAt(2) - '0'] = map.get(key);
         }
 
 
     }
 
 
-    private void storeState(int i, int j, int[][] cells, Map<int[], Integer> map) {
+    private void changeState(int i, int j) {
         int count = 0;
         for (int k = 0; k < dirs.length; k++) {
             int in = i + dirs[k][0];
@@ -69,13 +77,14 @@ public class CanvaTest {
 
         if (cells[i][j] == POPULATED) {
             if (count <= 1 || count >= 4) {
-                map.put(new int[]{i, j}, UNPOPULATED);
+                map.put(i + "_" + j, UNPOPULATED);
             }
-        } else { // EMPTY || UNPOPULATED
+        } else {  //UNPOPULATED empty
             if (count == 3) {
-                map.put(new int[]{i, j}, POPULATED);
+                map.put(i + "_" + j, POPULATED);
             }
         }
+
     }
 
 

@@ -1,22 +1,30 @@
 package basic.knowledge.henry.algorithm.n_waySetAssociateCache;
 
-import java.util.LinkedList;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        test1();
-        test2();
-        test3();
-        test4();
-        test5();
 
-        LinkedList<Integer> list = new LinkedList<>();
-        list.add(2);
-        list.add(2);
-        list.add(2);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)->b- a);
+        Collections.sort(new ArrayList<Integer>(),(a,b)->b- a);
 
-        list.remove(Integer.valueOf(2));
-        System.out.println();
+
+        Hashtable<Integer,Integer> table = new Hashtable<>();
+
+//        System.out.println(Integer.valueOf("0123"));
+//        test1();
+//        test2();
+//        test3();
+//        test4();
+//        test5();
+//
+//        LinkedList<Integer> list = new LinkedList<>();
+//        list.add(2);
+//        list.add(2);
+//        list.add(2);
+//
+//        list.remove(Integer.valueOf(2));
+//        System.out.println();
 
     }
 
