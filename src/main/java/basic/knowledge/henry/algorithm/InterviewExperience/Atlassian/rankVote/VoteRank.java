@@ -7,6 +7,13 @@ import java.util.List;
 
 // use stream
 public class VoteRank {
+    public static void main(String[] args) {
+        String[] votes = new String[]{"ABC","BCDE","ACD","BC"};
+
+        VoteRank voteRank = new VoteRank();
+        String s = voteRank.rankTeams(votes);
+        System.out.println(s);
+    }
     public String rankTeams(String[] votes) {
 
         HashMap<Character,int[]> voteMap = new HashMap<>();

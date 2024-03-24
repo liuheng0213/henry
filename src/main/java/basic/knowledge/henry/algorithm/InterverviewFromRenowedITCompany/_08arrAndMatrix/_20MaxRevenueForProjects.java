@@ -9,10 +9,10 @@ public class
 _20MaxRevenueForProjects {
     public static void main(String[] args) {
         _20MaxRevenueForProjects maxRevenueForProjects = new _20MaxRevenueForProjects();
-        int[] costs = new int[]{5, 4, 1, 2};
-        int[] profits = new int[]{3, 5, 3, 2}; //这指得是利润 而不是 收入
+        int[] costs = new int[]{5, 4, 1, 2, 2};
+        int[] profits = new int[]{3, 5, 3, 2, 9}; //这指得是利润 而不是 收入
         //初始资金为3 最多做两个项目
-        int res = maxRevenueForProjects.getMaxRevenue(costs, profits, 3, 2);
+        int res = maxRevenueForProjects.getMaxRevenue(costs, profits, 5, 3);
         System.out.println(res);
     }
 
