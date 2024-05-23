@@ -2,14 +2,15 @@ package basic.knowledge.henry;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
 
 public class BasicTest {
+
+
     @Test
     public void testTreeSet() {
+        List<Integer> list = new ArrayList<>();
+
         String str = "abc123";
         String substring = str.substring(3,5);
 
