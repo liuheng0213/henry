@@ -6,10 +6,7 @@ import java.util.*;
 // use stream
 public class VoteRank_Stream_2 {
     public static void main(String[] args) {
-        TreeSet<Integer> set1 = new TreeSet<>();
-        set1.add(1);
-        set1.remove(1);
-        set1.remove(2);
+
         VoteRank_Stream_2 voteRankStream = new VoteRank_Stream_2();
         //["ABC","ACB","ABC","ACB","ACB"]
         String x = voteRankStream.rankTeams("ABCD");
@@ -35,7 +32,7 @@ public class VoteRank_Stream_2 {
             Vote vote = voteMap.getOrDefault(charArray[i], new Vote(charArray[i]));
             ranks.remove(vote);
             vote.ranks.put(i, vote.ranks.getOrDefault(i, 0) + 1);
-            vote.updateMax(vote.ranks.getOrDefault(i, 0) + 1);
+//            vote.updateMax(vote.ranks.getOrDefault(i, 0) + 1);
             voteMap.put(charArray[i], vote);
             ranks.add(vote);
         }
@@ -49,20 +46,20 @@ public class VoteRank_Stream_2 {
     private class Vote implements Comparable<Vote> {
         Character letter;
         HashMap<Integer, Integer> ranks;
-        int max = -1; // 用于compareTo中
+//        int max = -1; // 用于compareTo中
         public Vote(char letter) {
             this.letter = letter;
             this.ranks = new HashMap<>();
         }
 
-        public void updateMax(int num){
-            this.max = Math.max(num,this.max);
-        }
+//        public void updateMax(int num){
+//            this.max = Math.max(num,this.max);
+//        }
 
         @Override
         public int compareTo(Vote that) {
             int index = 0;
-            int max = Math.max(this.max, that.max);
+            int max = Math.max(this.ranks.size(), that.ranks.size());
             while (index <= max) {
                 int this_times = this.ranks.containsKey(index) ? this.ranks.get(index) : 0;
                 int that_times = that.ranks.containsKey(index) ? that.ranks.get(index) : 0;

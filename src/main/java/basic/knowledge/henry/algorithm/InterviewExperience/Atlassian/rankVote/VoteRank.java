@@ -8,7 +8,7 @@ import java.util.List;
 // use stream
 public class VoteRank {
     public static void main(String[] args) {
-        String[] votes = new String[]{"ABC","BCDE","ACD","BC"};
+        String[] votes = new String[]{"ABC","BCD","ACD","BCE"};
 
         VoteRank voteRank = new VoteRank();
         String s = voteRank.rankTeams(votes);

@@ -10,6 +10,8 @@ class Leetcode348 {
 
     int winner;
 
+    int lastPlayer;
+
 
     public Leetcode348(int n) {
         vertical = new int[n];
@@ -17,11 +19,16 @@ class Leetcode348 {
         diagonal = 0;
         antiDiagonal = 0;
         winner = 0;
+        lastPlayer = 1;
     }
 
     public int move(int row, int col, int player) {
         if (winner != 0) {
             return winner;
+        }
+
+        if(this.lastPlayer == player){
+            throw new RuntimeException("it is not your turn");
         }
 
         if (player == 1) {
@@ -35,8 +42,10 @@ class Leetcode348 {
             }
 
             if (checkWinner(row, col, 1)) {
+                this.winner = player;
                 return player;
             }
+            lastPlayer = player;
         } else if (player == 2) {
             vertical[col]--;
             horizon[row]--;
@@ -47,8 +56,10 @@ class Leetcode348 {
                 antiDiagonal--;
             }
             if (checkWinner(row, col, -1)) {
+                this.winner = player;
                 return player;
             }
+            lastPlayer = player;
         }
         return 0;
     }

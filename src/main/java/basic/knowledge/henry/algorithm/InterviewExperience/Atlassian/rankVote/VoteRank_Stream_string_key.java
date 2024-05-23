@@ -65,14 +65,12 @@ public class VoteRank_Stream_string_key {
         private void updateVote(int rank,int sequence){
             if (rank == 0) {
                 score += 3;
-                this.sequence = sequence;
             } else if (rank == 1) {
                 score += 2;
-                this.sequence = sequence;
             } else if (rank == 2) {
                 score++;
-                this.sequence = sequence;
             }
+            this.sequence = sequence;
         }
 
         public Vote(String name) {

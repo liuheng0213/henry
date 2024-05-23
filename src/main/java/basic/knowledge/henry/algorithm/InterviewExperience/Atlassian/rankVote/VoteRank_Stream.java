@@ -10,7 +10,8 @@ public class VoteRank_Stream {
         String x = voteRankStream.rankTeams("ABC");
         System.out.println(x);
         String y = voteRankStream.rankTeams("ACB");
-        String z = voteRankStream.rankTeams("ABC");
+        System.out.println(y);
+        String z = voteRankStream.rankTeams("BCA");
         System.out.println(z);
         String e = voteRankStream.rankTeams("ACB");
         String f = voteRankStream.rankTeams("ACB");
