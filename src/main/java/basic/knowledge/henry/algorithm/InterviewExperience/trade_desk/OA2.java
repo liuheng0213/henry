@@ -44,9 +44,11 @@ import java.util.LinkedList;
 public class OA2 {
     public static void main(String[] args) {
         OA2 test = new OA2();
-        int[] nums = new int[]{4, 400, 450, 500};
+        int[] nums = new int[]{4, 200,400, 450, 500,505,700,1500,1700,2000};
         int[] res = test.processGuests2(nums);
+        int[] res1 = test.processGuests(nums);
         System.out.println(Arrays.toString(res));  // [304, 700, 1000, 1300, 2300]
+        System.out.println(Arrays.toString(res1));  // [304, 700, 1000, 1300, 2300]
     }
 
     public int[] processGuests2(int[] nums) {
@@ -64,16 +66,21 @@ public class OA2 {
             // is not in the status of processing ,
             if(out[processingIndex] <= nums[i]){
                 //need to see if the queue can poll out or not
-                while(!queue.isEmpty() && out[processingIndex] <= nums[i]){
+                while(!queue.isEmpty()&&  out[processingIndex] <= nums[i]){
                     int id = queue.pollFirst();
                     out[id] = out[processingIndex] + 300;
                     processingIndex = id;
                 }
                 // now queue.isEmpty() or out[processingIndex] > nums[i]
+
                 //then starts to process i;
-                if(queue.isEmpty() &&  out[processingIndex] <= nums[i]){
+                if(queue.isEmpty() && out[processingIndex] <= nums[i]){
                     processingIndex= i;
                     out[i] = nums[i] + 300;
+                }else if(queue.isEmpty() && out[processingIndex] > nums[i]){
+                    queue.addLast(i);
+                }else { //!queue.isEmpty() && out[processingIndex] > nums[i]
+                    queue.addLast(i);
                 }
 
             }else{     // is in the status of processing, adding i to queue directly
