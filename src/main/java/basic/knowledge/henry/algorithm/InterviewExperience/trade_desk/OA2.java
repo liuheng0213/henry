@@ -2,6 +2,7 @@ package basic.knowledge.henry.algorithm.InterviewExperience.trade_desk;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Imagine an exclusive event that many people wish to attend. The event starts at time 0. For every person attending,
@@ -44,6 +45,8 @@ import java.util.LinkedList;
 public class OA2 {
     public static void main(String[] args) {
         OA2 test = new OA2();
+        Queue<Integer> queue = new LinkedList<>();
+
         int[] nums = new int[]{4, 200,400, 450, 500,505,700,1500,1700,2000};
         int[] res = test.processGuests2(nums);
         int[] res1 = test.processGuests(nums);
