@@ -1,7 +1,6 @@
-package basic.knowledge.henry.algorithm.n_waySetAssociateCache;
+package basic.knowledge.henry.algorithm.InterviewExperience.trade_desk.n_waySetAssociateCache;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public interface EvictPolicy<K,V> {
     void onPut(LinkedList<CacheElement<K, V>> list,CacheElement<K, V> cacheElement);

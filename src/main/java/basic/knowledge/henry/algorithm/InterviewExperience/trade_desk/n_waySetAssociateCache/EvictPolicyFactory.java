@@ -1,6 +1,4 @@
-package basic.knowledge.henry.algorithm.n_waySetAssociateCache;
-
-import basic.knowledge.henry.design_Pattern._03DesignPattern_Factory._02multiMethodsFactory_commonSeen.LzNoodles;
+package basic.knowledge.henry.algorithm.InterviewExperience.trade_desk.n_waySetAssociateCache;
 
 public class EvictPolicyFactory {
     public static LRUEvictPolicy createLRUEvictPolicy() {

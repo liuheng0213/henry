@@ -1,7 +1,9 @@
-package basic.knowledge.henry.algorithm.n_waySetAssociateCache_best;
+package basic.knowledge.henry.algorithm.InterviewExperience.trade_desk.n_waySetAssociateCache_best;
 
-public class MRUEvictPolicy<K,V> implements EvictPolicy<K,V> {
+public class LRUEvictPolicy<K,V> implements EvictPolicy<K,V> {
     Node<K, V> evictCan;
+
+
     @Override
     public void onPut(DoublyLinkList<K, V> list, Node<K, V> node) {
         onGet(list,node);
@@ -12,8 +14,8 @@ public class MRUEvictPolicy<K,V> implements EvictPolicy<K,V> {
         if(node.pre != null && node.next != null){
             list.remove(node);
         }
-        list.add2Head(node);
-        evictCan = node;
+        list.add2Tail(node);
+        evictCan = list.getHead();
     }
 
     @Override

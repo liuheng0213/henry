@@ -1,6 +1,4 @@
-package basic.knowledge.henry.algorithm.n_waySetAssociateCache;
-
-import java.util.Objects;
+package basic.knowledge.henry.algorithm.InterviewExperience.trade_desk.n_waySetAssociateCache;
 
 public class CacheElement<K, V> {
     private K key;

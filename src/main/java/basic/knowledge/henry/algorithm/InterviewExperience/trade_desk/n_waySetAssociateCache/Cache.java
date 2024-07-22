@@ -1,4 +1,4 @@
-package basic.knowledge.henry.algorithm.n_waySetAssociateCache;
+package basic.knowledge.henry.algorithm.InterviewExperience.trade_desk.n_waySetAssociateCache;
 
 public interface Cache<K, V> {
     V get(final K key);
