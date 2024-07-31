@@ -1,5 +1,6 @@
 package basic.knowledge.henry.algorithm.InterviewExperience.Atlassian.snakeGame;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class SnakeGame_followup_Perfect {
@@ -18,6 +19,10 @@ public class SnakeGame_followup_Perfect {
     }
 
     public static void main(String[] args) {
+        System.out.println(Math.pow(2,4));
+        System.out.println((20 >>> 4));
+        System.out.println((20/(int)(Math.pow(2,4))));
+        System.out.println((20 >>> 4) & 1);
         SnakeGame_followup_Perfect solution = new SnakeGame_followup_Perfect(3, 2);
         int r = solution.move("R");
         System.out.println(r);
